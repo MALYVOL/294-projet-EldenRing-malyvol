@@ -8,10 +8,11 @@
   <v-card>
     <!-- Image du Boss -->
     <v-img
+      v-if="boss.image"
       :alt="boss.name"
       cover
       height="200px"
-      :src="boss"
+      :src="'https://apis.divtec.me' + boss.image"
     />
     <!-- Nom du Boss -->
     <v-card-title>{{ boss.name }}</v-card-title>
