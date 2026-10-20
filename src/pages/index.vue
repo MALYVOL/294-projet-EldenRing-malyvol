@@ -1,3 +1,5 @@
+import { bossOverrides } from '@/data/bossOverrides'
+
 <template>
   <v-container>
     <h1 class="text-h3 text-center my-6">
@@ -29,14 +31,29 @@
 <script setup>
   import { computed, onMounted, ref } from 'vue'
   import BossCard from '@/components/BossCard.vue'
+  import { bossOverrides } from '@/data/bossOverrides'
 
   const bosses = ref([])
   const search = ref('')
+  const excludedBossIds = new Set([3, 11, 51, 66])
 
   onMounted(async () => {
     const response = await fetch('https://apis.divtec.me/api/elden-ring/bosses?limit=100')
     const json = await response.json()
     bosses.value = json.data
+      .filter(boss => !excludedBossIds.has(boss.id))
+      .map(boss => {
+        const override = bossOverrides[boss.id]
+
+        return {
+          ...boss,
+          ...override, image: override?.image
+            ? import.meta.env.BASE_URL + override.image
+            : (boss.image
+              ? 'https://apis.divtec.me' + boss.image
+              : null),
+        }
+      })
   })
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
