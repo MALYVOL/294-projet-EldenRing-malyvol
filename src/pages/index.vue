@@ -7,7 +7,7 @@
     <v-row>
       <ul>
         <li
-          v-for="boss in champions"
+          v-for="boss in bosses"
           :key="boss.id"
         >
           {{ boss.name }}
