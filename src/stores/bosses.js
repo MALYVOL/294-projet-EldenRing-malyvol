@@ -5,6 +5,7 @@ import api from '@/plugins/axios'
 export const useBossStore = defineStore('bosses', {
   state: () => ({
     bosses: [],
+    isLoading: false,
   }),
 
   getters: {
@@ -18,6 +19,7 @@ export const useBossStore = defineStore('bosses', {
     },
 
     async fetchBosses () {
+      this.isLoading = true
       const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
       let page = 1
       let totalPages = 1
@@ -52,6 +54,7 @@ export const useBossStore = defineStore('bosses', {
                   : null),
           }
         })
+      this.isLoading = false
     },
   },
 })
