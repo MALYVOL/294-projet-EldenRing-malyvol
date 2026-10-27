@@ -9,7 +9,7 @@
     <v-text-field
       v-model="search"
       clearable
-      label="Rechercher un boss"
+      label="Search the boss"
     />
 
     <v-row v-if="isLoading">
