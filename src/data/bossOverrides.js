@@ -113,11 +113,20 @@ export const bossOverrides = {
     healthPoints: '14,000',
   },
 
+  81: {
+    healthPoints: '1,631 each',
+  },
+
   95: {
     healthPoints: '3,311',
   },
 
   99: {
     healthPoints: '999999999',
+  },
+
+  105: {
+    image: 'images/bosses/Wormface-boss-elden-ring-wiki-guide-300px.avif',
+    healthPoints: '5,876',
   },
 }

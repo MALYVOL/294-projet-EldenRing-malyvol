@@ -35,7 +35,7 @@ import { bossOverrides } from '@/data/bossOverrides'
 
   const bosses = ref([])
   const search = ref('')
-  const excludedBossIds = new Set([3, 11, 51, 66])
+  const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
 
   onMounted(async () => {
     let page = 1
