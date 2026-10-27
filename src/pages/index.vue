@@ -39,7 +39,8 @@
   const search = ref('')
 
   onMounted(async () => {
-    bossStore.fetchBosses()
+    await bossStore.fetchBosses()
+    console.log(bossStore.getBossById(2))
   })
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()

@@ -9,6 +9,7 @@ export const useBossStore = defineStore('bosses', {
 
   getters: {
     totalBosses: state => state.bosses.length,
+    getBossById: state => id => state.bosses.find(boss => boss.id === id),
   },
 
   actions: {
