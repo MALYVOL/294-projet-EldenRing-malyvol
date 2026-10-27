@@ -7,6 +7,10 @@ export const useBossStore = defineStore('bosses', {
     bosses: [],
   }),
 
+  getters: {
+    totalBosses: state => state.bosses.length,
+  },
+
   actions: {
     async fetchBosses () {
       const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])

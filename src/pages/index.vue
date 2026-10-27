@@ -4,6 +4,8 @@
       Elden Ring Bosses
     </h1>
 
+    <p>Number of bosses: {{ totalBosses }}</p>
+
     <v-text-field
       v-model="search"
       clearable
@@ -33,7 +35,7 @@
   import { useBossStore } from '@/stores/bosses'
 
   const bossStore = useBossStore()
-  const { bosses } = storeToRefs(bossStore)
+  const { bosses, totalBosses } = storeToRefs(bossStore)
   const search = ref('')
 
   onMounted(async () => {
