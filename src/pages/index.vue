@@ -1,5 +1,3 @@
-import { bossOverrides } from '@/data/bossOverrides'
-
 <template>
   <v-container>
     <h1 class="text-h3 text-center my-6">
@@ -32,6 +30,7 @@ import { bossOverrides } from '@/data/bossOverrides'
   import { computed, onMounted, ref } from 'vue'
   import BossCard from '@/components/BossCard.vue'
   import { bossOverrides } from '@/data/bossOverrides'
+  import api from '@/plugins/axios'
 
   const bosses = ref([])
   const search = ref('')
@@ -43,10 +42,13 @@ import { bossOverrides } from '@/data/bossOverrides'
     const allBosses = []
 
     while (page <= totalPages) {
-      const response = await fetch(
-        `https://apis.divtec.me/api/elden-ring/bosses?limit=100&page=${page}`,
-      )
-      const json = await response.json()
+      const response = await api.get('/bosses', {
+        params: {
+          limit: 100,
+          page: page,
+        },
+      })
+      const json = response.data
 
       allBosses.push(...json.data)
       totalPages = json.pagination.pages
