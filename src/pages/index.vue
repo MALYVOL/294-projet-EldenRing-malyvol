@@ -38,9 +38,23 @@ import { bossOverrides } from '@/data/bossOverrides'
   const excludedBossIds = new Set([3, 11, 51, 66])
 
   onMounted(async () => {
-    const response = await fetch('https://apis.divtec.me/api/elden-ring/bosses?limit=100')
-    const json = await response.json()
-    bosses.value = json.data
+    let page = 1
+    let totalPages = 1
+    const allBosses = []
+
+    while (page <= totalPages) {
+      const response = await fetch(
+        `https://apis.divtec.me/api/elden-ring/bosses?limit=100&page=${page}`,
+      )
+      const json = await response.json()
+
+      allBosses.push(...json.data)
+      totalPages = json.pagination.pages
+      page++
+    }
+
+    bosses.value = allBosses
+
       .filter(boss => !excludedBossIds.has(boss.id))
       .map(boss => {
         const override = bossOverrides[boss.id]
@@ -54,6 +68,8 @@ import { bossOverrides } from '@/data/bossOverrides'
               : null),
         }
       })
+    console.log('Telechargé depuis API:', allBosses.length)
+    console.log('Après les bosses exclus:', bosses.value.length)
   })
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
