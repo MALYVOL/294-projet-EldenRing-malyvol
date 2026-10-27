@@ -13,6 +13,10 @@ export const useBossStore = defineStore('bosses', {
   },
 
   actions: {
+    async init () {
+      await this.fetchBosses()
+    },
+
     async fetchBosses () {
       const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
       let page = 1

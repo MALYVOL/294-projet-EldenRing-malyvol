@@ -30,7 +30,7 @@
 
 <script setup>
   import { storeToRefs } from 'pinia'
-  import { computed, onMounted, ref } from 'vue'
+  import { computed, ref } from 'vue'
   import BossCard from '@/components/BossCard.vue'
   import { useBossStore } from '@/stores/bosses'
 
@@ -38,10 +38,6 @@
   const { bosses, totalBosses } = storeToRefs(bossStore)
   const search = ref('')
 
-  onMounted(async () => {
-    await bossStore.fetchBosses()
-    console.log(bossStore.getBossById(2))
-  })
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
 

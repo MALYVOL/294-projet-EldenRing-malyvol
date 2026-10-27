@@ -5,5 +5,12 @@
 </template>
 
 <script setup>
-  //
+  import { onMounted } from 'vue'
+  import { useBossStore } from '@/stores/bosses'
+
+  const bossStore = useBossStore()
+
+  onMounted(() => {
+    bossStore.init()
+  })
 </script>
