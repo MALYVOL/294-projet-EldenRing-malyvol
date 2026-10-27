@@ -6,6 +6,7 @@ export const useBossStore = defineStore('bosses', {
   state: () => ({
     bosses: [],
     isLoading: false,
+    error: null,
   }),
 
   getters: {
@@ -20,41 +21,49 @@ export const useBossStore = defineStore('bosses', {
 
     async fetchBosses () {
       this.isLoading = true
-      const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
-      let page = 1
-      let totalPages = 1
-      const allBosses = []
+      this.error = null
 
-      while (page <= totalPages) {
-        const response = await api.get('/bosses', {
-          params: {
-            limit: 100,
-            page,
-          },
-        })
-        const json = response.data
+      try {
+        const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
+        let page = 1
+        let totalPages = 1
+        const allBosses = []
 
-        allBosses.push(...json.data)
-        totalPages = json.pagination.pages
-        page++
+        while (page <= totalPages) {
+          const response = await api.get('/bosses', {
+            params: {
+              limit: 100,
+              page,
+            },
+          })
+          const json = response.data
+
+          allBosses.push(...json.data)
+          totalPages = json.pagination.pages
+          page++
+        }
+
+        this.bosses = allBosses
+
+          .filter(boss => !excludedBossIds.has(boss.id))
+          .map(boss => {
+            const override = bossOverrides[boss.id]
+
+            return {
+              ...boss,
+              ...override, image: override?.image
+                ? import.meta.env.BASE_URL + override.image
+                : (boss.image
+                    ? 'https://apis.divtec.me' + boss.image
+                    : null),
+            }
+          })
+      } catch (error) {
+        this.error = 'Impossible to fetch bosses'
+        console.error(error)
+      } finally {
+        this.isLoading = false
       }
-
-      this.bosses = allBosses
-
-        .filter(boss => !excludedBossIds.has(boss.id))
-        .map(boss => {
-          const override = bossOverrides[boss.id]
-
-          return {
-            ...boss,
-            ...override, image: override?.image
-              ? import.meta.env.BASE_URL + override.image
-              : (boss.image
-                  ? 'https://apis.divtec.me' + boss.image
-                  : null),
-          }
-        })
-      this.isLoading = false
     },
   },
 })

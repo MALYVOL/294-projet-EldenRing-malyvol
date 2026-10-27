@@ -21,6 +21,13 @@
         md="4"
         sm="6"
       >
+
+        <v-alert
+          v-if="error"
+          type="error"
+        >
+          {{error}}
+        </v-alert>
         <v-skeleton-loader type="image, article" />
       </v-col>
     </v-row>
@@ -48,7 +55,7 @@
   import { useBossStore } from '@/stores/bosses'
 
   const bossStore = useBossStore()
-  const { bosses, totalBosses, isLoading } = storeToRefs(bossStore)
+  const { bosses, totalBosses, isLoading, error } = storeToRefs(bossStore)
   const search = ref('')
 
   const filteredBosses = computed(() => {
