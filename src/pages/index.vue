@@ -27,51 +27,17 @@
 </template>
 
 <script setup>
+  import { storeToRefs } from 'pinia'
   import { computed, onMounted, ref } from 'vue'
   import BossCard from '@/components/BossCard.vue'
-  import { bossOverrides } from '@/data/bossOverrides'
-  import api from '@/plugins/axios'
+  import { useBossStore } from '@/stores/bosses'
 
-  const bosses = ref([])
+  const bossStore = useBossStore()
+  const { bosses } = storeToRefs(bossStore)
   const search = ref('')
-  const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
 
   onMounted(async () => {
-    let page = 1
-    let totalPages = 1
-    const allBosses = []
-
-    while (page <= totalPages) {
-      const response = await api.get('/bosses', {
-        params: {
-          limit: 100,
-          page: page,
-        },
-      })
-      const json = response.data
-
-      allBosses.push(...json.data)
-      totalPages = json.pagination.pages
-      page++
-    }
-
-    bosses.value = allBosses
-
-      .filter(boss => !excludedBossIds.has(boss.id))
-      .map(boss => {
-        const override = bossOverrides[boss.id]
-
-        return {
-          ...boss,
-          ...override, image: override?.image
-            ? import.meta.env.BASE_URL + override.image
-            : (boss.image
-              ? 'https://apis.divtec.me' + boss.image
-              : null),
-        }
-      })
-    console.log('Telechargé depuis API:', allBosses.length)
-    console.log('Après les bosses exclus:', bosses.value.length)
+    bossStore.fetchBosses()
   })
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
