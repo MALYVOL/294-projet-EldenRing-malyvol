@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <v-card>
+  <v-card :to="`/boss/${boss.id}`">
     <!-- Image du Boss -->
     <img
       v-if="boss.image"

@@ -3,11 +3,11 @@
   import { useRoute } from 'vue-router'
   import { useBossStore } from '@/stores/bosses'
 
-  const store = useRoute()
+  const route = useRoute()
   const bossStore = useBossStore()
 
   const boss = computed(() => {
-    return bossStore.getBossById(number(route.params.id))
+    return bossStore.getBossById(Number(route.params.id))
   })
 </script>
 
