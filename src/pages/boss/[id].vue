@@ -13,7 +13,22 @@
 
 <template>
   <v-container>
-    <h1 v-if="boss">{{ boss.name }}</h1>
+    <div v-if="boss">
+      <h1>{{ boss.name }}</h1>
+
+      <img
+        v-if="boss.image"
+        :alt="boss.name"
+        :src="boss.image"
+        width="400"
+      >
+
+      <p>Hp: {{ boss.healthPoints }}</p>
+      <p>Location: {{ boss.location }}</p>
+      <p>Region: {{ boss.region }}</p>
+      <p>{{ boss.description }}</p>
+      <p>Drops: {{ boss.drops }}</p>
+    </div>
     <p v-else>Boss not found or still loading...</p>
   </v-container>
 </template>
