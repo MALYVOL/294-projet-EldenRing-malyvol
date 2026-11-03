@@ -12,6 +12,35 @@
       label="Search the boss"
     />
 
+    <v-row align="center">
+      <v-col cols="12" md="4">
+        <v-text-field
+          v-model="search"
+          clearable
+          label="Search the boss"
+        />
+      </v-col>
+
+      <v-col cols="12" md="4">
+        <v-select
+          v-model="selectedRegion"
+          :items="regions"
+          clearable
+          label="Filter by region"
+        />
+      </v-col>
+
+      <v-col cols="12" md="auto">
+        <v-btn @click="sortAscending = !sortAscending">
+          {{ sortAscending ? 'A–Z' : 'Z–A' }}
+        </v-btn>
+      </v-col>
+    </v-row>
+
+    <v-alert v-if="error" type="error">
+      {{ error }}
+    </v-alert>
+
     <v-row v-if="isLoading">
       <v-col
         v-for="n in 8"
@@ -21,13 +50,6 @@
         md="4"
         sm="6"
       >
-
-        <v-alert
-          v-if="error"
-          type="error"
-        >
-          {{error}}
-        </v-alert>
         <v-skeleton-loader type="image, article" />
       </v-col>
     </v-row>
@@ -57,6 +79,14 @@
   const bossStore = useBossStore()
   const { bosses, totalBosses, isLoading, error } = storeToRefs(bossStore)
   const search = ref('')
+  const sortAscending = ref(true)
+  сonst selectedRegion = ref(null)
+
+  const region = computed(() => {
+    const names = bosses.value.map(boss => boss.region)
+    return [...new Set(names.filter(name => name))]
+  })
+
 
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
