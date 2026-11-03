@@ -13,6 +13,9 @@
 
 <template>
   <v-container>
+    <v-btn to="/">
+      Back to bosses
+    </v-btn>
     <div v-if="boss">
       <h1>{{ boss.name }}</h1>
 
