@@ -7,16 +7,28 @@ export const useBossStore = defineStore('bosses', {
     bosses: [],
     isLoading: false,
     error: null,
+    favorites: [],
   }),
 
   getters: {
     totalBosses: state => state.bosses.length,
     getBossById: state => id => state.bosses.find(boss => boss.id === id),
+    isFavorite: state => id => state.favorites.includes(id),
   },
 
   actions: {
     async init () {
       await this.fetchBosses()
+    },
+
+    toggleFavorite (id) {
+      const index = this.favorites.indexOf(id)
+
+      if (index === -1) {
+        this.favorites.push(id)
+      } else {
+        this.favorites.splice(index, 1)
+      }
     },
 
     async fetchBosses () {
