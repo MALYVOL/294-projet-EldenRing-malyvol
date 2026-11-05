@@ -21,6 +21,7 @@ export const useBossStore = defineStore('bosses', {
 
   actions: {
     async init () {
+      this.loadFavorites()
       await this.fetchBosses()
     },
 
@@ -31,6 +32,19 @@ export const useBossStore = defineStore('bosses', {
         this.favorites.push(id)
       } else {
         this.favorites.splice(index, 1)
+      }
+      this.saveFavorites()
+    },
+
+    saveFavorites () {
+      localStorage.setItem('favoriteBosses', JSON.stringify(this.favorites))
+    },
+
+    loadFavorites () {
+      const savedFavorites = localStorage.getItem('favoriteBosses')
+
+      if (savedFavorites) {
+        this.favorites = JSON.parse(savedFavorites)
       }
     },
 
