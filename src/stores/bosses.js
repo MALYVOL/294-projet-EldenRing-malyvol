@@ -14,6 +14,9 @@ export const useBossStore = defineStore('bosses', {
     totalBosses: state => state.bosses.length,
     getBossById: state => id => state.bosses.find(boss => boss.id === id),
     isFavorite: state => id => state.favorites.includes(id),
+    getFavorites: state => state.bosses.filter(boss =>
+      state.favorites.includes(boss.id),
+    ),
   },
 
   actions: {
@@ -56,14 +59,14 @@ export const useBossStore = defineStore('bosses', {
         }
 
         this.bosses = allBosses
-
           .filter(boss => !excludedBossIds.has(boss.id))
           .map(boss => {
             const override = bossOverrides[boss.id]
 
             return {
               ...boss,
-              ...override, image: override?.image
+              ...override,
+              image: override?.image
                 ? import.meta.env.BASE_URL + override.image
                 : (boss.image
                     ? 'https://apis.divtec.me' + boss.image

@@ -31,13 +31,12 @@
     <v-card-subtitle>{{ boss.drops.join(", ") }}</v-card-subtitle>
 
     <v-card-actions>
-      {{ bossStore.favorites }}
       <v-spacer />
 
       <v-btn
         :color="bossStore.isFavorite(boss.id) ? 'red' : undefined"
         :icon="bossStore.isFavorite(boss.id) ? 'mdi-heart' : 'mdi-heart-outline'"
-        @click.stop.prevent="console.log('Clicked:', boss.id)"
+        @click.stop.prevent="bossStore.toggleFavorite(boss.id)"
       />
     </v-card-actions>
   </v-card>
