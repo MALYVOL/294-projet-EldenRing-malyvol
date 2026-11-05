@@ -19,9 +19,9 @@
       <v-col cols="12" md="5">
         <v-select
           v-model="selectedRegion"
-          :items="regions"
           clearable
           hide-details
+          :items="regions"
           label="Filter by region"
         />
       </v-col>
@@ -54,7 +54,12 @@
       </v-col>
     </v-row>
 
+    <p v-else-if="!error && filteredBosses.length === 0">
+      No bosses found.
+    </p>
+
     <v-row v-else>
+
       <!-- Bosses -->
       <v-col
         v-for="boss in filteredBosses"
@@ -71,35 +76,35 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
-import BossCard from '@/components/BossCard.vue'
-import { useBossStore } from '@/stores/bosses'
+  import { storeToRefs } from 'pinia'
+  import { computed, ref } from 'vue'
+  import BossCard from '@/components/BossCard.vue'
+  import { useBossStore } from '@/stores/bosses'
 
-const bossStore = useBossStore()
-const { bosses, totalBosses, isLoading, error } = storeToRefs(bossStore)
+  const bossStore = useBossStore()
+  const { bosses, totalBosses, isLoading, error } = storeToRefs(bossStore)
 
-const search = ref('')
-const sortAscending = ref(true)
-const selectedRegion = ref(null)
+  const search = ref('')
+  const sortAscending = ref(true)
+  const selectedRegion = ref(null)
 
-const regions = computed(() => {
-  const names = bosses.value.map(boss => boss.region)
-  return [...new Set(names.filter(Boolean))]
-})
+  const regions = computed(() => {
+    const names = bosses.value.map(boss => boss.region)
+    return [...new Set(names.filter(Boolean))]
+  })
 
-const filteredBosses = computed(() => {
-  const text = (search.value ?? '').toLowerCase()
+  const filteredBosses = computed(() => {
+    const text = (search.value ?? '').toLowerCase()
 
-  return bosses.value
-    .filter(boss => !selectedRegion.value || boss.region === selectedRegion.value)
-    .filter(boss => boss.name.toLowerCase().includes(text))
-    .toSorted((a, b) => {
-      if (sortAscending.value) {
-        return a.name.localeCompare(b.name)
-      }
+    return bosses.value
+      .filter(boss => !selectedRegion.value || boss.region === selectedRegion.value)
+      .filter(boss => boss.name.toLowerCase().includes(text))
+      .toSorted((a, b) => {
+        if (sortAscending.value) {
+          return a.name.localeCompare(b.name)
+        }
 
-      return b.name.localeCompare(a.name)
-    })
-})
+        return b.name.localeCompare(a.name)
+      })
+  })
 </script>
