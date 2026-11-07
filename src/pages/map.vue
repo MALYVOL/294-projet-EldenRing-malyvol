@@ -1,32 +1,54 @@
 <script setup>
-  import L from 'leaflet'
   import { onMounted, onUnmounted, ref } from 'vue'
+  import L from 'leaflet'
   import 'leaflet/dist/leaflet.css'
 
   const mapElement = ref(null)
   let map = null
 
   onMounted(() => {
-    // Размеры исходного изображения в пикселях
-    const width = 6780
-    const height = 7049
+    const imageSize = 10496
+    const nativeZoom = 6
+    const scale = 2 ** nativeZoom
 
-    // Границы изображения: нижний левый и верхний правый углы
-    const bounds = [[0, 0], [height, width]]
+    // Перевод координат изображения в координаты Leaflet
+    function mapPoint (x, y) {
+      return L.latLng(-y / scale, x / scale)
+    }
+
+    const bounds = L.latLngBounds(
+      mapPoint(0, imageSize),
+      mapPoint(imageSize, 0),
+    )
 
     map = L.map(mapElement.value, {
       crs: L.CRS.Simple,
-      minZoom: -5,
-      maxZoom: 1,
+      minZoom: 1,
+      maxZoom: 7,
     })
 
-    // Путь также работает при размещении проекта в подпапке
-    const imageUrl = `${import.meta.env.BASE_URL}images/map.jpg`
+    // В этом архиве порядок папок: уровень / y / x
+    const tileUrl = `${import.meta.env.BASE_URL}ctiles/M00/base/{z}/{y}/{x}.webp`
 
-    L.imageOverlay(imageUrl, bounds).addTo(map)
+    L.tileLayer(tileUrl, {
+      tileSize: 256,
+      minNativeZoom: 0,
+      maxNativeZoom: nativeZoom,
+      noWrap: true,
+      bounds,
+    }).addTo(map)
 
-    // При открытии показываем карту целиком
     map.fitBounds(bounds)
+
+    // Первая проверочная метка из файла markers.js
+    L.circleMarker(mapPoint(3097.4, 6460.4), {
+      radius: 8,
+      color: 'darkred',
+      fillColor: 'red',
+      fillOpacity: 1,
+    })
+      .addTo(map)
+      .bindTooltip('Godrick the Grafted')
   })
 
   onUnmounted(() => {
@@ -51,9 +73,6 @@
   width: 100%;
   height: calc(100vh - 180px);
   min-height: 400px;
-}
-
-.leaflet-container {
   background: black;
 }
 </style>
