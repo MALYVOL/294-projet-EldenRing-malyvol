@@ -2,6 +2,7 @@
   import { onMounted, onUnmounted, ref } from 'vue'
   import L from 'leaflet'
   import 'leaflet/dist/leaflet.css'
+  import { MARKERS } from "@/data/markers.js";
 
   const mapElement = ref(null)
   let map = null
@@ -40,15 +41,20 @@
 
     map.fitBounds(bounds)
 
-    // Первая проверочная метка из файла markers.js
-    L.circleMarker(mapPoint(3097.4, 6460.4), {
-      radius: 8,
-      color: 'darkred',
-      fillColor: 'red',
-      fillOpacity: 1,
+    const bossMarkers = MARKERS.filter(marker =>
+      marker.cat === 'boss' && marker.master === 'M00',
+    )
+
+    bossMarkers.forEach(marker => {
+      L.circleMarker(mapPoint(marker.px, marker.py), {
+        radius: 8,
+        color: 'darkred',
+        fillColor: 'red',
+        fillOpacity: 1,
+      })
+        .addTo(map)
+        .bindTooltip(marker.name)
     })
-      .addTo(map)
-      .bindTooltip('Godrick the Grafted')
   })
 
   onUnmounted(() => {
@@ -56,6 +62,7 @@
       map.remove()
     }
   })
+
 </script>
 
 <template>
