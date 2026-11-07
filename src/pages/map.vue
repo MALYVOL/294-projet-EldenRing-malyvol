@@ -81,8 +81,14 @@
       b13000850: { x: 8450, y: 4310 }, // Godskin Duo
     }
 
+    const savedMarkers = JSON.parse(
+      localStorage.getItem('defeatedBossMarkers') || '[]',
+    )
+
+    const defeatedMarkers = new Set(savedMarkers)
+
     for (const marker of bossMarkers) {
-      let defeated = false
+      let defeated = defeatedMarkers.has(marker.id)
 
       const position = markerPositions[marker.id] ?? {
         x: marker.px,
@@ -91,8 +97,8 @@
 
       const circle = L.circleMarker(mapPoint(position.x, position.y), {
         radius: 8,
-        color: 'darkred',
-        fillColor: 'red',
+        color: defeated ? 'dimgray' : 'darkred',
+        fillColor: defeated ? 'gray' : 'red',
         fillOpacity: 1,
       })
         .addTo(map)
@@ -100,9 +106,9 @@
           const bossName = markerNames[marker.name] ?? marker.name
           const bossId = bossIdsByMarker[marker.id]
           const boss = bossStore.bosses.find(boss =>
-            bossId !== undefined
-              ? boss.id === bossId
-              : boss.name.toLowerCase() === bossName.toLowerCase(),
+            bossId === undefined
+              ? boss.name.toLowerCase() === bossName.toLowerCase()
+              : boss.id === bossId,
           )
 
           const card = document.createElement('div')
@@ -140,6 +146,17 @@
 
       circle.on('click', () => {
         defeated = !defeated
+
+        if (defeated) {
+          defeatedMarkers.add(marker.id)
+        } else {
+          defeatedMarkers.delete(marker.id)
+        }
+
+        localStorage.setItem(
+          'defeatedBossMarkers',
+          JSON.stringify([...defeatedMarkers]),
+        )
 
         circle.setStyle({
           color: defeated ? 'dimgray' : 'darkred',
