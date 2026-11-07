@@ -75,10 +75,21 @@
       bossMarkers.push({ ...radahnGrace, id: 'boss-starscourge-radahn', cat: 'boss' })
     }
 
+    const markerPositions = {
+      b13000800: { x: 8680, y: 4460 }, // Maliketh
+      b13000830: { x: 8500, y: 4600 }, // Dragonlord Placidusax
+      b13000850: { x: 8450, y: 4310 }, // Godskin Duo
+    }
+
     for (const marker of bossMarkers) {
       let defeated = false
 
-      const circle = L.circleMarker(mapPoint(marker.px, marker.py), {
+      const position = markerPositions[marker.id] ?? {
+        x: marker.px,
+        y: marker.py,
+      }
+
+      const circle = L.circleMarker(mapPoint(position.x, position.y), {
         radius: 8,
         color: 'darkred',
         fillColor: 'red',
