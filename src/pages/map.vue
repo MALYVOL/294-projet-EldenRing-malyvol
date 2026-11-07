@@ -45,8 +45,10 @@
       marker.cat === 'boss' && marker.master === 'M00',
     )
 
-    bossMarkers.forEach(marker => {
-      L.circleMarker(mapPoint(marker.px, marker.py), {
+    for (const marker of bossMarkers) {
+      let defeated = false
+
+      const circle = L.circleMarker(mapPoint(marker.px, marker.py), {
         radius: 8,
         color: 'darkred',
         fillColor: 'red',
@@ -54,7 +56,16 @@
       })
         .addTo(map)
         .bindTooltip(marker.name)
-    })
+
+      circle.on('click', () => {
+        defeated = !defeated
+
+        circle.setStyle({
+          color: defeated ? 'dimgray' : 'darkred',
+          fillColor: defeated ? 'gray' : 'red',
+        })
+      })
+    }
   })
 
   onUnmounted(() => {
