@@ -113,6 +113,11 @@ export const bossOverrides = {
     healthPoints: '14,000',
   },
 
+  80: {
+    healthPoints: '5,222',
+    description: 'A necromancer found in Sage’s Cave. He attacks with magical projectiles and summons skeletal spirits.',
+  },
+
   81: {
     healthPoints: '1,631 each',
   },

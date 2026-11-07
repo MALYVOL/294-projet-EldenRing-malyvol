@@ -9,6 +9,28 @@
   const bossStore = useBossStore()
   let map = null
 
+  // Names used by map markers when the boss has a different name in the API.
+  const markerNames = {
+    'Miranda Blossom': 'Miranda The Blighted Bloom',
+    'Erdtree Burial Watchdog': 'Burial Tree Watchdog',
+    'Erdtree Burial Watchdog (Sword)': 'Burial Tree Watchdog',
+    'Spiritcaller Snail': 'Spirit-caller Snail',
+    'Fell Twin': 'Fell Twins',
+    'Night\'s Cavalry (Glaive)': 'Night\'s Cavalry',
+    'Mad Pumpkin Head (Hammer)': 'Mad Pumpkin Head',
+    'Cleanrot Knight (Spear)': 'Cleanrot Knight',
+    'Crystalian': 'Crystalians',
+    'Crystalian (Staff)': 'Crystalians',
+    'Crystalian (Ringblade)': 'Crystalians',
+    'Putrid Crystalian (Spear)': 'Putrid Crystalian',
+    'Full-Grown Fallingstar Beast': 'Fallingstar Beast',
+    'Abductor Virgin (Swinging Sickle)': 'Abductor Virgins',
+    'Beastman of Farum Azula (Cleaver)': 'Beastman Of Farum Azula',
+  }
+
+  // Godfrey has two different encounters that share the same marker name.
+  const bossIdsByMarker = { b11000850: 53, b11050800: 52 }
+
   onMounted(() => {
     const imageSize = 10_496
     const nativeZoom = 6
@@ -44,8 +66,14 @@
     map.fitBounds(bounds)
 
     const bossMarkers = MARKERS.filter(marker =>
-      marker.cat === 'boss' && marker.master === 'M00',
+      marker.cat === 'boss' && marker.master === 'M00'
+      && !['b21000850', 'b21010800'].includes(marker.id),
     )
+
+    const radahnGrace = MARKERS.find(marker => marker.id === 'g76422')
+    if (radahnGrace) {
+      bossMarkers.push({ ...radahnGrace, id: 'boss-starscourge-radahn', cat: 'boss' })
+    }
 
     for (const marker of bossMarkers) {
       let defeated = false
@@ -58,8 +86,12 @@
       })
         .addTo(map)
         .bindTooltip(() => {
+          const bossName = markerNames[marker.name] ?? marker.name
+          const bossId = bossIdsByMarker[marker.id]
           const boss = bossStore.bosses.find(boss =>
-            boss.name.toLowerCase() === marker.name.toLowerCase(),
+            bossId !== undefined
+              ? boss.id === bossId
+              : boss.name.toLowerCase() === bossName.toLowerCase(),
           )
 
           const card = document.createElement('div')

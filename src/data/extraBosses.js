@@ -1,0 +1,210 @@
+export const extraBosses = [
+  {
+    id: -1,
+    name: 'Stonedigger Troll',
+    region: 'Limgrave',
+    location: 'Limgrave Tunnels',
+    description: 'A massive troll armed with a club. It guards the depths of Limgrave Tunnels and attacks with powerful swings and stomps.',
+    healthPoints: '1,295',
+    drops: ['1,800 Runes', 'Roar Medallion'],
+    image: 'public/images/bosses/ER_Stonedigger_Troll_Old_Altus_Tunnel.webp',
+  },
+
+  {
+    id: -2,
+    name: 'Patches',
+    region: 'Limgrave',
+    location: 'Murkwater Cave',
+    description: 'A cunning trickster encountered in Murkwater Cave. If spared during the fight, he can become a merchant.',
+    healthPoints: 'Unknown',
+    drops: ['Golden Rune [1] x2 if spared'],
+    image: 'public/images/bosses/ELDEN_RING_Patches_history_who.avif',
+  },
+
+  {
+    id: -3,
+    name: 'Margit, the Fell Omen',
+    region: 'Limgrave',
+    location: 'Stormhill, entrance to Stormveil Castle',
+    description: 'A fearsome warrior who guards the entrance to Stormveil Castle. He fights with a staff and summons weapons made of holy light.',
+    healthPoints: '4,174',
+    drops: ['12,000 Runes', 'Talisman Pouch'],
+    image: 'public/images/bosses/ER_Margit_Boss.webp',
+  },
+
+  {
+    id: -4,
+    name: 'Grave Warden Duelist',
+    region: 'Limgrave',
+    location: 'Murkwater Catacombs / Auriza Side Tomb',
+    description: 'A powerful duelist who guards burial grounds. He attacks with heavy hammers attached to chains.',
+    healthPoints: '2,190 / 6,240',
+    drops: [
+      '1,700 Runes and Banished Knight Engvall Ashes (Murkwater)',
+      '15,000 Runes and Soldjars of Fortune Ashes (Auriza)',
+    ],
+    image: 'public/images/bosses/Grave-warden-duelist-2-small1-min.avif',
+  },
+
+  {
+    id: -5,
+    name: 'Bols, Carian Knight',
+    region: 'Liurnia of the Lakes',
+    location: 'Cuckoo\'s Evergaol',
+    description: 'A giant Carian knight imprisoned in an evergaol. He wields a massive sword and summons magical glintblades.',
+    healthPoints: '5,109',
+    drops: ['4,600 Runes', 'Greatblade Phalanx'],
+    image: 'public/images/bosses/Elden_Liurnia_BolsKnight.webp',
+  },
+
+  {
+    id: -6,
+    name: 'Battlemage Hugues',
+    region: 'Caelid',
+    location: 'Sellia Evergaol',
+    description: 'A powerful battlemage imprisoned in Sellia Evergaol. He combines glintstone sorceries with close-range attacks.',
+    healthPoints: '4,095',
+    drops: ['7,800 Runes', 'Battlemage Hugues Ashes'],
+    image: 'public/images/bosses/Elden_Dragonb_Battlemage.webp',
+  },
+
+  {
+    id: -7,
+    name: 'Nox Monk',
+    region: 'Caelid',
+    location: 'Sellia, Town of Sorcery',
+    description: 'A Nox warrior associated with the encounter in Sellia, Town of Sorcery. Nox fighters use flexible weapons and swift attacks.',
+    healthPoints: 'Unknown',
+    drops: ['6,400 Runes from the Sellia encounter'],
+    image: 'public/images/bosses/307px-Nox_monk.avif',
+  },
+
+  {
+    id: -8,
+    name: 'Putrid Crystalian',
+    region: 'Caelid',
+    location: 'Sellia Hideaway',
+    description: 'Rot-infested crystal warriors found in Sellia Hideaway. Their hard bodies resist attacks until their crystal armour is broken.',
+    healthPoints: '3,358 (spear) / 3,358 (ringblade) / 1,679 (staff)',
+    drops: ['7,100 Runes', 'Crystal Torrent'],
+    image: 'public/images/bosses/putrid-crystalian-trio-featuredimage-elden-ring-1536x864.jpg.webp',
+  },
+
+  {
+    id: -9,
+    name: 'Bloodhound Knight',
+    region: 'Liurnia of the Lakes',
+    location: 'Lakeside Crystal Cave',
+    description: 'A swift and relentless knight who attacks with a curved blade and claws. One guards the end of Lakeside Crystal Cave.',
+    healthPoints: '993',
+    drops: ['3,600 Runes', 'Cerulean Amber Medallion'],
+    image: 'public/images/bosses/ER_Bloodhound_Knight.webp',
+  },
+
+  {
+    id: -10,
+    name: 'Putrid Avatar',
+    region: 'Caelid',
+    location: 'Minor Erdtrees in Caelid and Dragonbarrow',
+    description: 'A decaying guardian of the Minor Erdtrees. It attacks with a heavy staff and can spread Scarlet Rot.',
+    healthPoints: '5,671 (Caelid) / 12,297 (Dragonbarrow)',
+    drops: [
+      '9,600 Runes and Crystal Tears (Caelid)',
+      '91,000 Runes and Crystal Tears (Dragonbarrow)',
+    ],
+    image: 'public/images/bosses/ER_Putrid_Avatar_Caelid.webp',
+  },
+
+  {
+    id: -11,
+    name: 'Rennala, Queen of the Full Moon',
+    region: 'Liurnia of the Lakes',
+    location: 'Academy of Raya Lucaria',
+    description: 'The queen of the Carian royal family and head of Raya Lucaria Academy. She uses powerful sorceries and summons creatures to aid her.',
+    healthPoints: '4,097 (second phase)',
+    drops: [
+      '40,000 Runes',
+      'Remembrance of the Full Moon Queen',
+      'Great Rune of the Unborn',
+    ],
+    image: 'public/images/bosses/6XxJnDRNDYP5zQBNqNxUsQ.png',
+  },
+
+  {
+    id: -12,
+    name: 'Demi-Human Queen Gilika',
+    region: 'Altus Plateau',
+    location: 'Lux Ruins',
+    description: 'A fierce demi-human queen found beneath the Lux Ruins. She attacks quickly and aggressively with her staff and claws.',
+    healthPoints: '3,284',
+    drops: ['8,500 Runes'],
+    image: 'public/images/bosses/ER_Demihuman_Queen_Gilika.webp',
+  },
+
+  {
+    id: -13,
+    name: 'Misbegotten Warrior',
+    region: 'Altus Plateau',
+    location: 'Unsightly Catacombs',
+    description: 'A fierce warrior who wields a large curved sword. In the Unsightly Catacombs, he fights alongside Perfumer Tricia.',
+    healthPoints: '3,569',
+    drops: ['9,400 Runes', 'Perfumer Tricia Ashes'],
+    image: 'public/images/bosses/Misbegotten_warrior_enemies_elden_ring_wiki_300px.avif',
+  },
+
+  {
+    id: -14,
+    name: 'Sanguine Noble',
+    region: 'Altus Plateau',
+    location: 'Writheblood Ruins',
+    description: 'A blood-worshipping noble who uses a rapier and blood-based attacks. He can be found beneath the Writheblood Ruins.',
+    healthPoints: '9,560',
+    drops: ['8,800 Runes', 'Sanguine Noble\'s Hood'],
+    image: 'public/images/bosses/ER_Enemy_Sanguine_Noble.webp',
+  },
+
+  {
+    id: -15,
+    name: 'Morgott, the Omen King',
+    region: 'Altus Plateau',
+    location: 'Leyndell, Royal Capital',
+    description: 'The Omen King and defender of Leyndell. He wields a cursed sword and summons holy weapons to strike his enemies.',
+    healthPoints: '10,399',
+    drops: [
+      '120,000 Runes',
+      'Morgott\'s Great Rune',
+      'Remembrance of the Omen King',
+    ],
+    image: 'public/images/bosses/Morgott.webp',
+  },
+
+  {
+    id: -16,
+    name: 'Loretta, Knight of the Haligtree',
+    region: 'Miquella\'s Haligtree',
+    location: 'Haligtree Promenade',
+    description: 'A mounted knight who protects the path to Elphael. She fights with a war sickle and powerful sorceries.',
+    healthPoints: '13,397',
+    drops: [
+      '200,000 Runes',
+      'Loretta\'s Mastery',
+      'Loretta\'s War Sickle',
+    ],
+    image: 'public/images/bosses/ER_Loretta_at_the_Haligtree.webp',
+  },
+
+  {
+    id: -17,
+    name: 'Roundtable Knight Vyke',
+    region: 'Mountaintops of the Giants',
+    location: 'Lord Contender\'s Evergaol',
+    description: 'A former knight of the Roundtable Hold who fights with a spear and powerful lightning incantations.',
+    healthPoints: '9,146',
+    drops: [
+      '75,000 Runes',
+      'Fingerprint Set',
+      'Vyke\'s Dragonbolt',
+    ],
+    image: 'public/images/bosses/Vyke.webp',
+  },
+]

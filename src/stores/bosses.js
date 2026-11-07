@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { bossOverrides } from '@/data/bossOverrides'
+import { extraBosses } from '@/data/extraBosses'
 import api from '@/plugins/axios'
 
 export const useBossStore = defineStore('bosses', {
@@ -53,7 +54,7 @@ export const useBossStore = defineStore('bosses', {
       this.error = null
 
       try {
-        const excludedBossIds = new Set([3, 11, 51, 66, 80, 87])
+        const excludedBossIds = new Set([3, 11, 51, 66, 87])
         let page = 1
         let totalPages = 1
         const allBosses = []
@@ -87,6 +88,24 @@ export const useBossStore = defineStore('bosses', {
                     : null),
             }
           })
+
+        // Add local bosses only if the API does not already contain them.
+        const apiNames = new Set(this.bosses.map(boss => boss.name.toLowerCase()))
+        const newBosses = extraBosses
+          .filter(boss => !apiNames.has(boss.name.toLowerCase()))
+          .map(boss => {
+            const override = bossOverrides[boss.id]
+
+            return {
+              ...boss,
+              ...override,
+              image: override?.image
+                ? import.meta.env.BASE_URL + override.image
+                : boss.image,
+            }
+          })
+
+        this.bosses.push(...newBosses)
       } catch (error) {
         this.error = 'Impossible to fetch bosses'
         console.error(error)
