@@ -1,14 +1,16 @@
 <script setup>
-  import { onMounted, onUnmounted, ref } from 'vue'
   import L from 'leaflet'
+  import { onMounted, onUnmounted, ref } from 'vue'
+  import { MARKERS } from '@/data/markers.js'
+  import { useBossStore } from '@/stores/bosses.js'
   import 'leaflet/dist/leaflet.css'
-  import { MARKERS } from "@/data/markers.js";
 
   const mapElement = ref(null)
+  const bossStore = useBossStore()
   let map = null
 
   onMounted(() => {
-    const imageSize = 10496
+    const imageSize = 10_496
     const nativeZoom = 6
     const scale = 2 ** nativeZoom
 
@@ -55,7 +57,43 @@
         fillOpacity: 1,
       })
         .addTo(map)
-        .bindTooltip(marker.name)
+        .bindTooltip(() => {
+          const boss = bossStore.bosses.find(boss =>
+            boss.name.toLowerCase() === marker.name.toLowerCase(),
+          )
+
+          const card = document.createElement('div')
+          card.className = 'boss-tooltip'
+
+          const name = document.createElement('strong')
+          name.textContent = boss ? boss.name : marker.name
+          card.append(name)
+
+          if (boss) {
+            if (boss.image) {
+              const image = document.createElement('img')
+              image.src = boss.image
+              image.alt = boss.name
+              image.style.width = '180px'
+              image.style.display = 'block'
+              card.append(image)
+            }
+
+            const hp = document.createElement('p')
+            hp.textContent = `HP: ${boss.healthPoints ?? 'Unknown'}`
+            card.append(hp)
+
+            const location = document.createElement('p')
+            location.textContent = `Location: ${boss.location ?? 'Unknown'}`
+            card.append(location)
+          } else {
+            const message = document.createElement('p')
+            message.textContent = 'Boss details not found.'
+            card.append(message)
+          }
+
+          return card
+        })
 
       circle.on('click', () => {
         defeated = !defeated
