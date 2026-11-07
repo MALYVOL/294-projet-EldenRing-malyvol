@@ -7,7 +7,7 @@ export const extraBosses = [
     description: 'A massive troll armed with a club. It guards the depths of Limgrave Tunnels and attacks with powerful swings and stomps.',
     healthPoints: '1,295',
     drops: ['1,800 Runes', 'Roar Medallion'],
-    image: 'images/bosses/ER_Stonedigger_Troll_Old_Altus_Tunnel.webp',
+    image: '/images/bosses/ER_Stonedigger_Troll_Old_Altus_Tunnel.webp',
   },
 
   {
@@ -18,7 +18,7 @@ export const extraBosses = [
     description: 'A cunning trickster encountered in Murkwater Cave. If spared during the fight, he can become a merchant.',
     healthPoints: 'Unknown',
     drops: ['Golden Rune [1] x2 if spared'],
-    image: 'images/bosses/ELDEN_RING_Patches_history_who.avif',
+    image: '/images/bosses/ELDEN_RING_Patches_history_who.avif',
   },
 
   {
@@ -29,7 +29,7 @@ export const extraBosses = [
     description: 'A fearsome warrior who guards the entrance to Stormveil Castle. He fights with a staff and summons weapons made of holy light.',
     healthPoints: '4,174',
     drops: ['12,000 Runes', 'Talisman Pouch'],
-    image: 'images/bosses/ER_Margit_Boss.webp',
+    image: '/images/bosses/ER_Margit_Boss.webp',
   },
 
   {
@@ -43,7 +43,7 @@ export const extraBosses = [
       '1,700 Runes and Banished Knight Engvall Ashes (Murkwater)',
       '15,000 Runes and Soldjars of Fortune Ashes (Auriza)',
     ],
-    image: 'images/bosses/Grave-warden-duelist-2-small1-min.avif',
+    image: '/images/bosses/Grave-warden-duelist-2-small1-min.avif',
   },
 
   {
@@ -54,7 +54,7 @@ export const extraBosses = [
     description: 'A giant Carian knight imprisoned in an evergaol. He wields a massive sword and summons magical glintblades.',
     healthPoints: '5,109',
     drops: ['4,600 Runes', 'Greatblade Phalanx'],
-    image: 'images/bosses/Elden_Liurnia_BolsKnight.webp',
+    image: '/images/bosses/Elden_Liurnia_BolsKnight.webp',
   },
 
   {
@@ -65,7 +65,7 @@ export const extraBosses = [
     description: 'A powerful battlemage imprisoned in Sellia Evergaol. He combines glintstone sorceries with close-range attacks.',
     healthPoints: '4,095',
     drops: ['7,800 Runes', 'Battlemage Hugues Ashes'],
-    image: 'images/bosses/Elden_Dragonb_Battlemage.webp',
+    image: '/images/bosses/Elden_Dragonb_Battlemage.webp',
   },
 
   {
@@ -76,7 +76,7 @@ export const extraBosses = [
     description: 'A Nox warrior associated with the encounter in Sellia, Town of Sorcery. Nox fighters use flexible weapons and swift attacks.',
     healthPoints: 'Unknown',
     drops: ['6,400 Runes from the Sellia encounter'],
-    image: 'images/bosses/307px-Nox_monk.avif',
+    image: '/images/bosses/307px-Nox_monk.avif',
   },
 
   {
@@ -87,7 +87,7 @@ export const extraBosses = [
     description: 'Rot-infested crystal warriors found in Sellia Hideaway. Their hard bodies resist attacks until their crystal armour is broken.',
     healthPoints: '3,358 (spear) / 3,358 (ringblade) / 1,679 (staff)',
     drops: ['7,100 Runes', 'Crystal Torrent'],
-    image: 'images/bosses/putrid-crystalian-trio-featuredimage-elden-ring-1536x864.jpg.webp',
+    image: '/images/bosses/putrid-crystalian-trio-featuredimage-elden-ring-1536x864.jpg.webp',
   },
 
   {
@@ -98,7 +98,7 @@ export const extraBosses = [
     description: 'A swift and relentless knight who attacks with a curved blade and claws. One guards the end of Lakeside Crystal Cave.',
     healthPoints: '993',
     drops: ['3,600 Runes', 'Cerulean Amber Medallion'],
-    image: 'images/bosses/ER_Bloodhound_Knight.webp',
+    image: '/images/bosses/ER_Bloodhound_Knight.webp',
   },
 
   {
@@ -112,7 +112,7 @@ export const extraBosses = [
       '9,600 Runes and Crystal Tears (Caelid)',
       '91,000 Runes and Crystal Tears (Dragonbarrow)',
     ],
-    image: 'images/bosses/ER_Putrid_Avatar_Caelid.webp',
+    image: '/images/bosses/ER_Putrid_Avatar_Caelid.webp',
   },
 
   {
@@ -127,7 +127,7 @@ export const extraBosses = [
       'Remembrance of the Full Moon Queen',
       'Great Rune of the Unborn',
     ],
-    image: 'images/bosses/6XxJnDRNDYP5zQBNqNxUsQ.png',
+    image: '/images/bosses/6XxJnDRNDYP5zQBNqNxUsQ.png',
   },
 
   {
@@ -138,7 +138,7 @@ export const extraBosses = [
     description: 'A fierce demi-human queen found beneath the Lux Ruins. She attacks quickly and aggressively with her staff and claws.',
     healthPoints: '3,284',
     drops: ['8,500 Runes'],
-    image: 'images/bosses/ER_Demihuman_Queen_Gilika.webp',
+    image: '/images/bosses/ER_Demihuman_Queen_Gilika.webp',
   },
 
   {
@@ -149,7 +149,7 @@ export const extraBosses = [
     description: 'A fierce warrior who wields a large curved sword. In the Unsightly Catacombs, he fights alongside Perfumer Tricia.',
     healthPoints: '3,569',
     drops: ['9,400 Runes', 'Perfumer Tricia Ashes'],
-    image: 'images/bosses/Misbegotten_warrior_enemies_elden_ring_wiki_300px.avif',
+    image: '/images/bosses/Misbegotten_warrior_enemies_elden_ring_wiki_300px.avif',
   },
 
   {
@@ -160,7 +160,7 @@ export const extraBosses = [
     description: 'A blood-worshipping noble who uses a rapier and blood-based attacks. He can be found beneath the Writheblood Ruins.',
     healthPoints: '9,560',
     drops: ['8,800 Runes', 'Sanguine Noble\'s Hood'],
-    image: 'images/bosses/ER_Enemy_Sanguine_Noble.webp',
+    image: '/images/bosses/ER_Enemy_Sanguine_Noble.webp',
   },
 
   {
@@ -175,7 +175,7 @@ export const extraBosses = [
       'Morgott\'s Great Rune',
       'Remembrance of the Omen King',
     ],
-    image: 'images/bosses/Morgott.webp',
+    image: '/images/bosses/Morgott.webp',
   },
 
   {
@@ -190,7 +190,7 @@ export const extraBosses = [
       'Loretta\'s Mastery',
       'Loretta\'s War Sickle',
     ],
-    image: 'images/bosses/ER_Loretta_at_the_Haligtree.webp',
+    image: '/images/bosses/ER_Loretta_at_the_Haligtree.webp',
   },
 
   {
@@ -205,6 +205,6 @@ export const extraBosses = [
       'Fingerprint Set',
       'Vyke\'s Dragonbolt',
     ],
-    image: 'images/bosses/Vyke.webp',
+    image: '/images/bosses/Vyke.webp',
   },
 ]
