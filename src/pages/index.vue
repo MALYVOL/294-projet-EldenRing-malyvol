@@ -72,7 +72,7 @@
 
       <!-- Bosses -->
       <v-col
-        v-for="boss in filteredBosses"
+        v-for="boss in paginatedBosses"
         :key="boss.id"
         cols="12"
         lg="3"
@@ -87,7 +87,7 @@
 
 <script setup>
   import { storeToRefs } from 'pinia'
-  import { computed, ref } from 'vue'
+  import { computed, ref, watch } from 'vue'
   import BossCard from '@/components/BossCard.vue'
   import { useBossStore } from '@/stores/bosses'
 
@@ -97,6 +97,8 @@
   const search = ref('')
   const sortAscending = ref(true)
   const selectedRegion = ref(null)
+  const currentPage = ref(1)
+  const bossesPerPage = 40
 
   const regions = computed(() => {
     const names = bosses.value.map(boss => boss.region)
@@ -116,6 +118,20 @@
 
         return b.name.localeCompare(a.name)
       })
+  })
+
+  const pageCount = computed(() => {
+    return Math.ceil(filteredBosses.value.length / bossesPerPage)
+  })
+
+  const paginatedBosses = computed(() => {
+    const start = (currentPage.value - 1) * bossesPerPage
+
+    return filteredBosses.value.slice(start, start + bossesPerPage)
+  })
+
+  watch([search, selectedRegion, sortAscending], () => {
+    currentPage.value = 1
   })
 </script>
 
