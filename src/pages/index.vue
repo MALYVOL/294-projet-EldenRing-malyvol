@@ -82,6 +82,13 @@
         <BossCard :boss="boss" />
       </v-col>
     </v-row>
+    <v-pagination
+      class="my-8"
+      v-if="!isLoading && !error && pageCount > 1"
+      v-model="currentPage"
+      :length="pageCount"
+      rounded="circle"
+    />
   </v-container>
 </template>
 
