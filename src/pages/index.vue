@@ -12,7 +12,7 @@
 
     <p>Number of bosses: {{ totalBosses }}</p>
 
-    <v-row align="center">
+    <v-row align="center" class="boss-filters">
       <v-col cols="12" md="5">
         <v-text-field
           v-model="search"
@@ -140,5 +140,35 @@
 .boss-count {
   margin-top: 12px;
   color: #c9c2b5;
+}
+
+/* Поиск и выбор региона */
+.boss-filters :deep(.v-field) {
+  background-color: #1c1b19;
+  border-radius: 8px;
+  color: #eee8da;
+}
+
+.boss-filters :deep(.v-field__outline) {
+  color: #8a744a;
+}
+
+.boss-filters :deep(.v-label),
+.boss-filters :deep(.v-icon) {
+  color: #c8aa6e;
+}
+
+/* Кнопка сортировки */
+.boss-filters :deep(.v-btn) {
+  background-color: #1c1b19;
+  border: 1px solid #8a744a;
+  border-radius: 8px;
+  color: #e0c58a;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.boss-filters :deep(.v-btn:hover) {
+  background-color: #302a20;
 }
 </style>

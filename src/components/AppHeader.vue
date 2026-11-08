@@ -3,7 +3,10 @@
 </script>
 
 <template>
-  <v-app-bar class="app-header">
+  <v-app-bar
+    class="app-header"
+    color="#1c1b19"
+  >
     <v-app-bar-title>
       <div class="header-brand">
         <img alt="" class="header-logo" :src="logoUrl">
@@ -37,7 +40,7 @@
 <style scoped>
 .app-header {
   background-color: #1c1b19;
-  border-bottom: 1px solid #554a32;
+  border-bottom: 1px solid #8a744a;
 }
 
 .app-header :deep(.v-app-bar-title) {
@@ -46,11 +49,19 @@
 }
 
 .app-header :deep(.v-btn) {
-  color: #eee8da;
+  color: #c8aa6e;
+  border-radius: 8px;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .app-header :deep(.v-btn:hover) {
-  color: #e0c58a;
+  color: #f2dfb4;
+  background-color: #302a20;
+}
+
+.app-header :deep(.v-btn--active) {
+  color: #f2dfb4;
+  background-color: #302a20;
 }
 
 .header-brand {
