@@ -123,8 +123,6 @@
               const image = document.createElement('img')
               image.src = boss.image
               image.alt = boss.name
-              image.style.width = '180px'
-              image.style.display = 'block'
               card.append(image)
             }
 
@@ -142,6 +140,10 @@
           }
 
           return card
+        }, {
+          className: 'boss-map-tooltip',
+          direction: 'top',
+          opacity: 1,
         })
 
       circle.on('click', () => {
@@ -190,5 +192,46 @@
   height: calc(100vh - 180px);
   min-height: 400px;
   background: black;
+}
+
+.map-window :deep(.boss-map-tooltip) {
+  width: 240px;
+  padding: 0;
+  overflow: hidden;
+  white-space: normal;
+  background: #1c1b19;
+  border: 1px solid #8a744a;
+  border-radius: 10px;
+  color: #eee8da;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.map-window :deep(.boss-tooltip) {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-window :deep(.boss-tooltip img) {
+  order: -1;
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+.map-window :deep(.boss-tooltip strong) {
+  padding: 12px 14px 8px;
+  color: #d8bb80;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.map-window :deep(.boss-tooltip p) {
+  margin: 0;
+  padding: 0 14px 10px;
+  color: #d2cabe;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 </style>
