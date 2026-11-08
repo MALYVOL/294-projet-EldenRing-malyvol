@@ -16,9 +16,30 @@
       Loading bosses...
     </p>
 
-    <p v-else-if="!error && favoriteBosses.length === 0">
-      No favorite bosses yet.
-    </p>
+    <div
+      v-else-if="!error && favoriteBosses.length === 0"
+      class="empty-favorites"
+    >
+      <v-icon
+        class="mb-4"
+        icon="mdi-heart-outline"
+        size="56"
+      />
+
+      <h2>No favorite bosses yet</h2>
+
+      <p>
+        Explore the bosses and add your favorites by clicking the heart.
+      </p>
+
+      <v-btn
+        class="mt-5"
+        to="/"
+        variant="outlined"
+      >
+        Explore bosses
+      </v-btn>
+    </div>
 
     <v-row v-else>
       <v-col
@@ -43,6 +64,27 @@
   const { getFavorites: favoriteBosses, isLoading, error } = storeToRefs(bossStore)
 </script>
 
-<style scoped lang="sass">
+<style scoped>
+.empty-favorites {
+  max-width: 520px;
+  margin: 70px auto;
+  padding: 40px 24px;
+  text-align: center;
+  color: #eee8da;
+  background-color: #1c1b19;
+  border: 1px solid #554a32;
+  border-radius: 12px;
+}
 
+.empty-favorites .v-icon {
+  color: #c8aa6e;
+}
+
+.empty-favorites h2 {
+  margin-bottom: 12px;
+}
+
+.empty-favorites p {
+  color: #c9c2b5;
+}
 </style>
