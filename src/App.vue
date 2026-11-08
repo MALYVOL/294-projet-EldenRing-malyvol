@@ -14,3 +14,10 @@
     bossStore.init()
   })
 </script>
+
+<style>
+.v-application {
+  background-color: #11110f;
+  color: #eee8da;
+}
+</style>
