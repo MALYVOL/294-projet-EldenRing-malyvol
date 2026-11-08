@@ -23,5 +23,7 @@
 
 .v-application h1 {
   color: #e0c58a;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.03em;
 }
 </style>
