@@ -1,10 +1,14 @@
 <script setup>
-
+  const logoUrl = `${import.meta.env.BASE_URL}images/elden-ring-logo.png`
 </script>
 
 <template>
   <v-app-bar class="app-header">
-    <v-app-bar-title>Elden Ring Bosses</v-app-bar-title>
+    <v-app-bar-title>
+      <div class="header-brand">
+        <img alt="" class="header-logo" :src="logoUrl">
+      </div>
+    </v-app-bar-title>
 
     <v-btn prepend-icon="mdi-sword-cross" to="/">
       Bosses
@@ -47,5 +51,17 @@
 
 .app-header :deep(.v-btn:hover) {
   color: #e0c58a;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-logo {
+  width: 250px;
+  height: 100px;
+  object-fit: contain;
 }
 </style>

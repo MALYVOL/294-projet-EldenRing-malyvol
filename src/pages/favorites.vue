@@ -65,6 +65,8 @@
 </script>
 
 <style scoped>
+
+
 .empty-favorites {
   max-width: 520px;
   margin: 70px auto;

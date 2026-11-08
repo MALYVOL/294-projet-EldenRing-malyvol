@@ -243,4 +243,9 @@
   line-height: 1.4;
   overflow-wrap: anywhere;
 }
+
+.text-h3 text-center my-6 {
+  color: #e0c58a;
+  font-family: inherit;
+}
 </style>

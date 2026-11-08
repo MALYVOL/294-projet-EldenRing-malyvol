@@ -1,8 +1,14 @@
 <template>
   <v-container>
-    <h1 class="text-h3 text-center my-6">
-      All Bosses
-    </h1>
+    <div class="catalog-heading">
+      <p class="catalog-label">THE LANDS BETWEEN</p>
+
+      <h1>All Bosses</h1>
+
+      <p class="boss-count">
+        {{ totalBosses }} bosses to discover
+      </p>
+    </div>
 
     <p>Number of bosses: {{ totalBosses }}</p>
 
@@ -112,3 +118,27 @@
       })
   })
 </script>
+
+<style scoped>
+.catalog-heading {
+  padding: 32px 0;
+  text-align: center;
+}
+
+.catalog-label {
+  margin-bottom: 8px;
+  color: #a89162;
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+}
+
+.catalog-heading h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.15;
+}
+
+.boss-count {
+  margin-top: 12px;
+  color: #c9c2b5;
+}
+</style>
