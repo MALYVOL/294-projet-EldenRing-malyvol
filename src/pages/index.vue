@@ -13,6 +13,8 @@
           clearable
           hide-details
           label="Search the boss"
+          prepend-inner-icon="mdi-magnify"
+          variant="outlined"
         />
       </v-col>
 
@@ -23,6 +25,8 @@
           hide-details
           :items="regions"
           label="Filter by region"
+          prepend-inner-icon="mdi-filter-variant"
+          variant="outlined"
         />
       </v-col>
 
