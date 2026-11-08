@@ -97,8 +97,8 @@
 
       const circle = L.circleMarker(mapPoint(position.x, position.y), {
         radius: 8,
-        color: defeated ? 'dimgray' : 'darkred',
-        fillColor: defeated ? 'gray' : 'red',
+        color: defeated ? '#666666' : '#6e542b',
+        fillColor: defeated ? '#888888' : '#d5b66f',
         fillOpacity: 1,
       })
         .addTo(map)
@@ -161,8 +161,8 @@
         )
 
         circle.setStyle({
-          color: defeated ? 'dimgray' : 'darkred',
-          fillColor: defeated ? 'gray' : 'red',
+          color: defeated ? '#666666' : '#6e542b',
+          fillColor: defeated ? '#888888' : '#d5b66f',
         })
       })
     }
@@ -192,6 +192,15 @@
   height: calc(100vh - 180px);
   min-height: 400px;
   background: black;
+}
+
+.map-window::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 450;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px 30px #11110f;
 }
 
 .map-window :deep(.boss-map-tooltip) {
