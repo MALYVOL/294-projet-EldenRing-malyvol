@@ -20,4 +20,8 @@
   background-color: #11110f;
   color: #eee8da;
 }
+
+.v-application h1 {
+  color: #e0c58a;
+}
 </style>
