@@ -1,171 +1,310 @@
-# 🌐 Mon Projet Vue.js & Vuetify
+# Elden Ring Bosses
 
-## 1. 🎨 Présentation du projet
+Elden Ring Bosses is a school project built with Vue 3 and Vuetify. It helps players explore bosses from Elden Ring, view their information, save favorites, and track completed encounters on an interactive map.
+
+**Live application:**  
+https://294-projet-elden-ring-malyvol.vercel.app/
+
+---
+
+## 1. Project presentation
 
 ### Concept
-- API choisie et pourquoi  
-- Public cible  
-- Objectifs de l’application  
 
-### Fonctionnalités principales
-- Affichage d’une liste d’éléments (via API)
-- Recherche / Tri / Filtres
-- Vue détail
-- Fonctionnalité interactive (favoris, watchlist, paramètres…)
-- Persistance locale (favoris ou préférences)
+Elden Ring contains many bosses spread across different regions. This application brings boss information together in one place, with a catalog inspired by a Pokédex.
 
-### Aperçu visuel
-_(Capture d’écran de l’application)_  
-`![Screenshot de l’application](img/screenshot.png)`
+The project is intended for Elden Ring players who want to explore bosses, find information about them, and track encounters.
 
----
+### API choice
 
-## 2. 📚 Parcours d'apprentissage
+The application uses the [Divtec Elden Ring API](https://apis.divtec.me/api/elden-ring/docs#/bosses/get_api_elden_ring_bosses). It provides information such as boss names, descriptions, locations, health points, and drops.
 
-### Ressources utilisées
-#### Documentation & tutos
-- [Vue 3 Docs](https://vuejs.org/guide/introduction.html)
-- [Vuetify Docs](https://vuetifyjs.com/en/components/all/)
-- [Pinia Docs](https://pinia.vuejs.org/)
-- [Public APIs List](https://github.com/public-apis/public-apis)
-- Autres ressources...
+I chose this API because its boss data fits the main goal of the project: creating a catalog of Elden Ring bosses.
 
-#### Progression
-- Semaine 1 : ...
-- Semaine 2 : ...
-- Semaine 3 : ...
-- Semaine 4 : ...
-- ...
+### Main features
 
----
+- Browse a list of bosses loaded from the API.
+- View boss cards with images and information.
+- Search bosses by name.
+- Filter bosses by region.
+- Sort bosses alphabetically.
+- Navigate through the catalog using pagination.
+- Open a detail page for each boss.
+- Add and remove bosses from favorites.
+- Save favorites in the browser using `localStorage`.
+- Explore boss markers on an interactive map.
+- View boss information by hovering over a marker.
+- Mark encounters as defeated and save their status locally.
 
-## 3. 🛠️ Outils et méthodologie
+### Visual overview
 
-### Environnement de développement
-- **IDE** : VS Code / WebStorm / Autre
-- **Versioning** : Git + GitHub
-- **Dépendances principales** : Vue 3, Vuetify 3, Pinia, Axios/Fetch
-- **Gestion API Keys** : `.env` + `.env.example`
+Add a screenshot of the application here:
 
-### Installation & Run
-- Cloner le repo :...
-- Installer :... 
-- Lancer :...
-- Variables d’environnement : copier `.env.example` → `.env` et compléter les clés nécessaires  
+```markdown
+![Application screenshot](docs/screenshot.png)
+```
 
-### Méthodologie
-- Découpage en composants réutilisables
-- Props & Emits clairs
-- Store global avec Pinia
-- Commits réguliers et explicites
-- Tests manuels (UI, persistance, erreurs API)
-- ...
-
-### Choix techniques
-- API sélectionnée :  
-- Justification du choix :  
-- Endpoints utilisés :  
-- Limites/quotas connus :  
-
-### Architecture (Descriptif + schéma simple + data-flow)
-- `App.vue` : layout principal  
-- `views/` : pages (liste, détail, favoris)  
-- ...
-Outils utiles : Figma / Draw.io / ...
-
-**Data-flow résumé :**  
-- Vue déclenche un **event utilisateur** → composant appelle une fonction du **store** → ...
+Replace the path with the location of your screenshot in the repository.
 
 ---
 
-## 4. 🧪 Tests et validation
+## 2. Learning journey
 
-### Tests techniques
-- ✅ Appels API fonctionnels  
-- ✅ Persistance vérifiée après refresh (localStorage)  
-- ✅ Navigation entre les vues OK  
-- ...
+### Resources used
 
-### Tests d’UX
-- Navigation intuitive  
-- Recherche/filtre/tri faciles à comprendre  
-- Feedback utilisateur (loading, erreurs, vide)  
-- ...
+- [Vue 3 documentation](https://vuejs.org/guide/introduction.html)
+- [Vuetify documentation](https://vuetifyjs.com/en/components/all/)
+- [Pinia documentation](https://pinia.vuejs.org/)
+- [Vue Router documentation](https://router.vuejs.org/)
+- [Axios documentation](https://axios-http.com/docs/intro)
+- [Leaflet documentation](https://leafletjs.com/)
+- [Divtec Elden Ring API documentation](https://apis.divtec.me/api/elden-ring/docs#/bosses/get_api_elden_ring_bosses)
 
-### Tests d’accessibilité
-- Contraste couleurs (Vuetify par défaut)  
-- Labels et placeholders corrects  
-- Navigation clavier possible  
-- Focus visible  
-- ...
+### Progress
 
-### Tests d’erreurs & fallback
-- API down → **mock fallback** affiché (fichier local ou données simulées)  
-- Liste vide → message clair affiché  
-- Recherche sans résultat → affichage “Aucun élément trouvé”  
-- ...
+> Complete this section with the actual weeks and work completed.
+
+- **Week 1:** Project setup and first API request.
+- **Week 2:** Boss cards, search, and manual data corrections.
+- **Week 3:** Pinia store, navigation, favorites, and local storage.
+- **Week 4 and later:** Interactive map, styling, testing, and documentation.
 
 ---
 
-## 5. 🤖 Usage d’intelligence artificielle
+## 3. Tools and methodology
 
-**⚠️ TRANSPARENCE OBLIGATOIRE** : Si vous utilisez une IA, vous DEVEZ :
+### Development environment
 
-### IA utilisée
-- **Nom** : ChatGPT / Claude / GitHub Copilot / Autre  
-- **Version** : _(ex. GPT-4)_  
-- **Contexte** : Aide ponctuelle / Génération de code / Debugging  
+- **IDE:** WebStorm
+- **Version control:** Git and GitHub
+- **Framework:** Vue 3
+- **UI library:** Vuetify 3
+- **State management:** Pinia
+- **Navigation:** Vue Router
+- **HTTP requests:** Axios
+- **Interactive map:** Leaflet
+- **Build tool:** Vite
 
-### Utilisation détaillée
-**Domaines d'aide :**
-- Aide au code général : X%
-- Génération de snippets Vue/Vuetify : X%  
-- Aide à la structuration du projet : X%
-- Debugging : X%  
-- Recherche d’idées : X%  
+### Installation
 
-**Compréhension et adaptation**
-- Expliquer ce que fait le code généré  
-- Dire comment il a été adapté au projet  
+You need Node.js and npm installed on your computer.
 
-### Parties codées manuellement
-- Composants principaux : X% personnel  
-- Store & persistance : X% personnel  
-- Routing & navigation : X% personnel  
-- Tests & validation : 100% personnel  
+1. Clone the repository:
 
-### Apprentissage personnel
-- Ce que j’ai appris grâce à l’IA  
-- Comment elle m’a aidé à progresser  
+```bash
+git clone https://github.com/MALYVOL/294-projet-EldenRing-malyvol.git
+```
+
+2. Open the project folder:
+
+```bash
+cd 294-projet-EldenRing-malyvol
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Create a `.env` file from `.env.example`.
+
+In Windows Command Prompt:
+
+```cmd
+copy .env.example .env
+```
+
+The file should contain the API base URL:
+
+```env
+VITE_API_URL=https://apis.divtec.me/api/elden-ring
+```
+
+5. Start the development server:
+
+```bash
+npm run dev
+```
+
+6. Open the local address displayed in the terminal.
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Technical choices
+
+**API endpoint:**
+
+```text
+GET /bosses
+```
+
+The store requests the available API pages using `limit` and `page` parameters.
+
+**Additional boss data:**
+
+- `bossOverrides.js` contains manual corrections and local image paths for selected bosses.
+- `extraBosses.js` contains bosses added locally when they are not available in the API response.
+- Some unwanted duplicate entries are excluded by ID.
+
+**Known limitations:**
+
+- Some boss information or images may be missing or incomplete.
+- A boss can appear in several locations, while its catalog card may contain general information.
+- The map uses a set of prepared markers; not every encounter is necessarily represented.
+- API rate limits or quotas have not been confirmed.
+
+### Architecture
+
+```text
+src/
+├── components/
+│   ├── AppHeader.vue
+│   ├── AppFooter.vue
+│   └── BossCard.vue
+├── data/
+│   ├── bossOverrides.js
+│   ├── extraBosses.js
+│   └── markers.js
+├── pages/
+│   ├── index.vue
+│   ├── favorites.vue
+│   ├── about.vue
+│   ├── map.vue
+│   └── boss/
+│       └── [id].vue
+├── plugins/
+│   └── axios.js
+├── stores/
+│   └── bosses.js
+└── App.vue
+```
+
+### Data flow
+
+1. `App.vue` initializes the boss store when the application starts.
+2. The Pinia store requests boss data from the API using Axios.
+3. The store applies exclusions and manual data where configured.
+4. Pages and components display data from the store.
+5. User actions update favorites or map progress, which are saved in `localStorage`.
 
 ---
 
-## 6. 🎯 Bilan personnel
+## 4. Testing and validation
 
-### Ce que j’ai appris
-- Compétences techniques acquises  
-- Découvertes surprenantes  
-- Concepts difficiles maîtrisés  
+The following checks are part of the final validation. Update their status after testing the latest deployed version.
 
-### Difficultés rencontrées
-- Problèmes techniques et solutions trouvées  
-- Moments de blocage et dépassement  
-- Aide reçue et sources  
+### Features
 
-### Réussites et fiertés
-- Aspects du projet dont je suis fier  
-- Progrès constatés depuis le début  
-- Envies de développement futur  
+- [ ] Bosses load from the API.
+- [ ] Search works without depending on letter case.
+- [ ] Region filter and search work together.
+- [ ] Alphabetical sorting works in both directions.
+- [ ] Pagination displays the correct bosses on each page.
+- [ ] A message is displayed when no results are found.
+- [ ] Boss detail pages open and display the correct information.
+- [ ] Favorites can be added and removed.
+- [ ] Favorites remain saved after refreshing the page.
+- [ ] Map markers display boss information.
+- [ ] Defeated markers remain saved after refreshing the page.
+- [ ] The application works on the deployed website.
 
-### Améliorations possibles
-- Ce que j’ajouterais avec plus de temps  
-- Fonctionnalités bonus envisagées  
-- Compétences à approfondir  
+### Loading and error states
+
+- [ ] A skeleton loader is displayed while bosses are loading.
+- [ ] An error message is displayed when the API request fails.
+- [ ] An empty favorites message is displayed when there are no favorites.
+
+The current project uses an error message for failed API requests. A local mock fallback has not been implemented.
+
+### Accessibility and usability
+
+- [ ] Navigation and controls can be used with a keyboard.
+- [ ] Focus is visible.
+- [ ] Icons have accessible labels.
+- [ ] Text and controls have sufficient contrast.
+- [ ] The layout remains usable on smaller screens.
+- [ ] No unexpected errors appear in the browser console during normal use.
 
 ---
 
-## 7. 📚 Références & Sources
-- Documentation de l’API : [Nom de l’API](https://...)  
-- Tutos clés utilisés : ...  
-- Usage de l’IA : voir section ci-dessus  
-- Autres ressources utiles : ...
+## 5. Use of artificial intelligence
+
+### AI tool
+
+- **Tool:** ChatGPT
+- **Model/version:** Add the model or version you used, if known.
+- **Context:** Learning support, explanations, debugging, code suggestions, design ideas, and documentation assistance.
+
+### How AI was used
+
+AI helped me understand Vue, Pinia, API requests, component structure, routing, and `localStorage`. It also suggested code for features such as boss cards, filtering, favorites, the interactive map, and styling.
+
+I reviewed and adapted the suggestions to my project. Examples of adaptations include correcting boss data, choosing which bosses to display, and adjusting the map and its markers.
+
+### Personal contribution
+
+I configured and developed the project, tested features, selected boss information and images, and made decisions about the application. I also reviewed and modified AI suggestions while learning how they work.
+
+> If your teacher expects percentages, add your own honest estimates here. Do not use invented percentages.
+
+### What I learned with AI
+
+AI explanations helped me understand the purpose of components, props, the Pinia store, asynchronous API requests, computed values, and local persistence.
+
+---
+
+## 6. Personal reflection
+
+> Adapt this section in your own words before submitting the project.
+
+### What I learned
+
+- How to structure a Vue application using components and pages.
+- How to request and display data from an API.
+- How to share data between pages using Pinia.
+- How to use `localStorage` for persistent user choices.
+- How to integrate an interactive map with Leaflet.
+- How to use Git and GitHub during development.
+
+### Difficulties
+
+- Handling several pages of API results.
+- Dealing with missing or inconsistent boss data.
+- Matching map markers with boss cards.
+- Displaying map tiles correctly after deployment.
+- Understanding how Vue reactivity and asynchronous requests work.
+
+### Achievements
+
+- Creating a searchable boss catalog.
+- Building a favorites system with persistent data.
+- Adding an interactive map with encounter tracking.
+- Deploying the application online.
+
+### Possible improvements
+
+- Add more complete and accurate boss information.
+- Improve missing images and map marker positions.
+- Add weaknesses, attacks, and progression advice.
+- Improve accessibility and mobile layouts.
+- Add a local fallback for API errors.
+
+---
+
+## 7. References and credits
+
+- [Divtec Elden Ring API](https://apis.divtec.me/api/elden-ring/docs#/bosses/get_api_elden_ring_bosses)
+- [Vue](https://vuejs.org/)
+- [Vuetify](https://vuetifyjs.com/)
+- [Pinia](https://pinia.vuejs.org/)
+- [Axios](https://axios-http.com/)
+- [Leaflet](https://leafletjs.com/)
+- [Interactive map project used for map data](https://jw-ofs.github.io/elden-ring-map/)
+- [Elden Ring Compass — map tiles and game data](https://github.com/EthanShoeDev/elden-ring-compass)
+
+Elden Ring and its related assets belong to their respective owners. This is an unofficial school fan project.
