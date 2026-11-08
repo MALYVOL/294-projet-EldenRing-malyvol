@@ -83,9 +83,9 @@
       </v-col>
     </v-row>
     <v-pagination
-      class="my-8"
       v-if="!isLoading && !error && pageCount > 1"
       v-model="currentPage"
+      class="my-8"
       :length="pageCount"
       rounded="circle"
     />
