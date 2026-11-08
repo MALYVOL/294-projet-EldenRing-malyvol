@@ -9,7 +9,10 @@
 </script>
 
 <template>
-  <v-card :to="`/boss/${boss.id}`">
+  <v-card
+    class="boss-card"
+    :to="`/boss/${boss.id}`"
+  >
     <!-- Image du Boss -->
     <img
       v-if="boss.image"
@@ -42,6 +45,35 @@
   </v-card>
 </template>
 
-<style scoped lang="sass">
+<style scoped>
+.boss-card {
+  height: 100%;
+  overflow: hidden;
+  background-color: #1c1b19;
+  border: 1px solid #554a32;
+  border-radius: 10px;
+  color: #eee8da;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
 
+.boss-card:hover {
+  transform: translateY(-5px);
+  border-color: #c8aa6e;
+}
+
+.boss-card :deep(.v-card-title) {
+  color: #e0c58a;
+  font-weight: 600;
+  white-space: normal;
+}
+
+.boss-card :deep(.v-card-subtitle) {
+  color: #d2cabe;
+  opacity: 1;
+  white-space: normal;
+}
+
+.boss-card :deep(.v-card-actions) {
+  padding: 8px 12px;
+}
 </style>
