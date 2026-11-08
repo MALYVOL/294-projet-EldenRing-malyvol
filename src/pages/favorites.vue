@@ -4,7 +4,7 @@
 
 <template>
   <v-container>
-    <h1 class="text-h3 text-center my-6">
+    <h1 class="page-heading text-center my-6">
       Favorite Bosses
     </h1>
 
@@ -65,8 +65,6 @@
 </script>
 
 <style scoped>
-
-
 .empty-favorites {
   max-width: 520px;
   margin: 70px auto;

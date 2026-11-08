@@ -25,4 +25,9 @@
   color: #e0c58a;
   font-family: inherit;
 }
+
+.page-heading {
+  font-size: 3rem;
+  line-height: 1.2;
+}
 </style>

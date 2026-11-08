@@ -178,7 +178,7 @@
 
 <template>
   <v-container fluid>
-    <h1 class="text-h3 text-center my-6">
+    <h1 class="page-heading text-center my-6">
       Interactive Map
     </h1>
 
