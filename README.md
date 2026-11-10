@@ -36,15 +36,6 @@ I chose this API because its boss data fits the main goal of the project: creati
 - View boss information by hovering over a marker.
 - Mark encounters as defeated and save their status locally.
 
-### Visual overview
-
-Add a screenshot of the application here:
-
-```markdown
-![Application screenshot](docs/screenshot.png)
-```
-
-Replace the path with the location of your screenshot in the repository.
 
 ---
 
@@ -58,11 +49,10 @@ Replace the path with the location of your screenshot in the repository.
 - [Vue Router documentation](https://router.vuejs.org/)
 - [Axios documentation](https://axios-http.com/docs/intro)
 - [Leaflet documentation](https://leafletjs.com/)
-- [Divtec Elden Ring API documentation](https://apis.divtec.me/api/elden-ring/docs#/bosses/get_api_elden_ring_bosses)
+- [Divtec Elden Ring API](https://apis.divtec.me/api/elden-ring/docs#/bosses/get_api_elden_ring_bosses)
 
 ### Progress
 
-> Complete this section with the actual weeks and work completed.
 
 - **Week 1:** Project setup and first API request.
 - **Week 2:** Boss cards, search, and manual data corrections.
@@ -200,35 +190,35 @@ The following checks are part of the final validation. Update their status after
 
 ### Features
 
-- [ ] Bosses load from the API.
-- [ ] Search works without depending on letter case.
-- [ ] Region filter and search work together.
-- [ ] Alphabetical sorting works in both directions.
-- [ ] Pagination displays the correct bosses on each page.
-- [ ] A message is displayed when no results are found.
-- [ ] Boss detail pages open and display the correct information.
-- [ ] Favorites can be added and removed.
-- [ ] Favorites remain saved after refreshing the page.
-- [ ] Map markers display boss information.
-- [ ] Defeated markers remain saved after refreshing the page.
-- [ ] The application works on the deployed website.
+- [x] Bosses load from the API.
+- [x] Search works without depending on letter case.
+- [x] Region filter and search work together.
+- [x] Alphabetical sorting works in both directions.
+- [x] Pagination displays the correct bosses on each page.
+- [x] A message is displayed when no results are found.
+- [x] Boss detail pages open and display the correct information.
+- [x] Favorites can be added and removed.
+- [x] Favorites remain saved after refreshing the page.
+- [x] Map markers display boss information.
+- [x] Defeated markers remain saved after refreshing the page.
+- [x] The application works on the deployed website.
 
 ### Loading and error states
 
-- [ ] A skeleton loader is displayed while bosses are loading.
-- [ ] An error message is displayed when the API request fails.
-- [ ] An empty favorites message is displayed when there are no favorites.
+- [x] A skeleton loader is displayed while bosses are loading.
+- [x] An error message is displayed when the API request fails.
+- [x] An empty favorites message is displayed when there are no favorites.
 
 The current project uses an error message for failed API requests. A local mock fallback has not been implemented.
 
 ### Accessibility and usability
 
-- [ ] Navigation and controls can be used with a keyboard.
-- [ ] Focus is visible.
-- [ ] Icons have accessible labels.
-- [ ] Text and controls have sufficient contrast.
-- [ ] The layout remains usable on smaller screens.
-- [ ] No unexpected errors appear in the browser console during normal use.
+- [x] Navigation and controls can be used with a keyboard.
+- [x] Focus is visible.
+- [x] Icons have accessible labels.
+- [x] Text and controls have sufficient contrast.
+- [x] The layout remains usable on smaller screens.
+- [x] No unexpected errors appear in the browser console during normal use.
 
 ---
 
@@ -250,7 +240,6 @@ I reviewed and adapted the suggestions to my project. Examples of adaptations in
 
 I configured and developed the project, tested features, selected boss information and images, and made decisions about the application. I also reviewed and modified AI suggestions while learning how they work.
 
-> If your teacher expects percentages, add your own honest estimates here. Do not use invented percentages.
 
 ### What I learned with AI
 
@@ -260,7 +249,7 @@ AI explanations helped me understand the purpose of components, props, the Pinia
 
 ## 6. Personal reflection
 
-> Adapt this section in your own words before submitting the project.
+I actually enjoyed working on this project. It always annoyed me that I had to constantly search for information on wikis or similar sites—the interactive maps only listed the bosses’ names, with no details on their drops or general information. It’s a shame, of course, that the images in the API were low-quality and there were fewer bosses than there actually are in the game itself—not to mention the DLCs. But I found solutions to the problems. Unfortunately, I didn’t have enough time to fully finish my project; if I’d had more time, I probably would have replaced more than 70% of the images on the site, but as it is, I’m happy with the final result. There were issues with the interactive map, as well as with searching for and solving them. But in the end, everything turned out just the way I wanted it to.
 
 ### What I learned
 
@@ -290,8 +279,6 @@ AI explanations helped me understand the purpose of components, props, the Pinia
 
 - Add more complete and accurate boss information.
 - Improve missing images and map marker positions.
-- Add weaknesses, attacks, and progression advice.
-- Improve accessibility and mobile layouts.
 - Add a local fallback for API errors.
 
 ---
