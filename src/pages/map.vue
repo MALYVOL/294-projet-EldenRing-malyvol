@@ -36,7 +36,6 @@
     const nativeZoom = 6
     const scale = 2 ** nativeZoom
 
-    // Перевод координат изображения в координаты Leaflet
     function mapPoint (x, y) {
       return L.latLng(-y / scale, x / scale)
     }
@@ -52,7 +51,6 @@
       maxZoom: 7,
     })
 
-    // В этом архиве порядок папок: уровень / y / x
     const tileUrl = `${import.meta.env.BASE_URL}ctiles/M00/base/{z}/{y}/{x}.webp`
 
     L.tileLayer(tileUrl, {
@@ -242,10 +240,5 @@
   font-size: 0.85rem;
   line-height: 1.4;
   overflow-wrap: anywhere;
-}
-
-.text-h3 text-center my-6 {
-  color: #e0c58a;
-  font-family: inherit;
 }
 </style>

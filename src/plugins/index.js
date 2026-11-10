@@ -4,10 +4,10 @@
  * Automatically included in `./src/main.js`
  */
 
-// Plugins
-import vuetify from './vuetify'
-import pinia from '@/stores'
+// PLugins
 import router from '@/router'
+import pinia from '@/stores'
+import vuetify from './vuetify'
 
 export function registerPlugins (app) {
   app
