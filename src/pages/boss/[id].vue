@@ -6,10 +6,12 @@
   const route = useRoute()
   const bossStore = useBossStore()
 
+  // Route parameters are strings; convert the ID to a number for the store.
   const boss = computed(() => {
     return bossStore.getBossById(Number(route.params.id))
   })
 
+  // Log changes to the selected boss for debugging.
   watchEffect(() => {
     console.log('Detail boss:', boss.value)
   })

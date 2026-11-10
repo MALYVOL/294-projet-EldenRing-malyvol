@@ -3,6 +3,7 @@
 </script>
 
 <template>
+  <!-- Describe the project and its main features. -->
   <v-container class="about-page py-10">
     <div class="about-card">
       <p class="about-label">

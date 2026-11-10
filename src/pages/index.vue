@@ -107,11 +107,13 @@
   const currentPage = ref(1)
   const bossesPerPage = 40
 
+  // Build the region filter from unique, non-empty values.
   const regions = computed(() => {
     const names = bosses.value.map(boss => boss.region)
     return [...new Set(names.filter(Boolean))]
   })
 
+  // Apply region and case-insensitive name filters before sorting.
   const filteredBosses = computed(() => {
     const text = (search.value ?? '').toLowerCase()
 
@@ -127,16 +129,19 @@
       })
   })
 
+  // Calculate pages from the filtered results.
   const pageCount = computed(() => {
     return Math.ceil(filteredBosses.value.length / bossesPerPage)
   })
 
+  // Display only the bosses belonging to the selected page.
   const paginatedBosses = computed(() => {
     const start = (currentPage.value - 1) * bossesPerPage
 
     return filteredBosses.value.slice(start, start + bossesPerPage)
   })
 
+  // Return to page one when the search, filter, or order changes.
   watch([search, selectedRegion, sortAscending], () => {
     currentPage.value = 1
   })
@@ -165,7 +170,7 @@
   color: #c9c2b5;
 }
 
-/* Поиск и выбор региона */
+/* Search and region controls */
 .boss-filters :deep(.v-field) {
   background-color: #1c1b19;
   border-radius: 8px;
@@ -181,7 +186,7 @@
   color: #c8aa6e;
 }
 
-/* Кнопка сортировки */
+/* Sort button */
 .boss-filters :deep(.v-btn) {
   background-color: #1c1b19;
   border: 1px solid #8a744a;

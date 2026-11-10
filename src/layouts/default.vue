@@ -1,4 +1,5 @@
 <template>
+  <!-- Shared navigation, page content, and footer. -->
   <AppHeader />
   <v-main>
     <router-view />

@@ -1,3 +1,4 @@
+// Manual corrections and image paths, indexed by boss ID.
 export const bossOverrides = {
   1: {
     image: 'images/bosses/abductor-virgins.avif',

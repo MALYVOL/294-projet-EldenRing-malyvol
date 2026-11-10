@@ -4,6 +4,7 @@
     class="app-footer"
     height="40"
   >
+    <!-- Display the current year automatically. -->
     {{ new Date().getFullYear() }} - Created by Volodymyr Malyshev
   </v-footer>
 </template>

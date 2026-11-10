@@ -10,6 +10,7 @@
 
   const bossStore = useBossStore()
 
+  // Load shared boss data and saved favorites when the app starts.
   onMounted(() => {
     bossStore.init()
   })

@@ -1,4 +1,6 @@
-﻿export const MARKERS = [
+// Surface boss marker data from https://jw-ofs.github.io/elden-ring-map/.
+// Radahn uses the coordinates of his Site of Grace.
+export const MARKERS = [
   { id: 'g76422', cat: 'grace', name: 'Starscourge Radahn', master: 'M00', px: 6228.5, py: 6825.9, desc: 'Caelid' },
   { id: 'b10000800', cat: 'boss', name: 'Godrick the Grafted', master: 'M00', px: 3097.4, py: 6460.4, desc: '20,000 runes' },
   { id: 'b10000850', cat: 'boss', name: 'Margit, the Fell Omen', master: 'M00', px: 3314.1, py: 6827.6, desc: '12,000 runes' },

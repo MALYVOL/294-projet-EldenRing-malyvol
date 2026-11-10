@@ -36,6 +36,7 @@
     const nativeZoom = 6
     const scale = 2 ** nativeZoom
 
+    // Convert image pixel coordinates to Leaflet simple-map coordinates.
     function mapPoint (x, y) {
       return L.latLng(-y / scale, x / scale)
     }
@@ -51,6 +52,7 @@
       maxZoom: 7,
     })
 
+    // Tile folders are organized as zoom / y / x.
     const tileUrl = `${import.meta.env.BASE_URL}ctiles/M00/base/{z}/{y}/{x}.webp`
 
     L.tileLayer(tileUrl, {
@@ -63,22 +65,26 @@
 
     map.fitBounds(bounds)
 
+    // Display surface boss markers and exclude the two misplaced DLC entries.
     const bossMarkers = MARKERS.filter(marker =>
       marker.cat === 'boss' && marker.master === 'M00'
       && !['b21000850', 'b21010800'].includes(marker.id),
     )
 
+    // Use Radahn’s Site of Grace as an approximate encounter marker.
     const radahnGrace = MARKERS.find(marker => marker.id === 'g76422')
     if (radahnGrace) {
       bossMarkers.push({ ...radahnGrace, id: 'boss-starscourge-radahn', cat: 'boss' })
     }
 
+    // Override selected marker positions for Farum Azula.
     const markerPositions = {
       b13000800: { x: 8680, y: 4460 }, // Maliketh
       b13000830: { x: 8500, y: 4600 }, // Dragonlord Placidusax
       b13000850: { x: 8450, y: 4310 }, // Godskin Duo
     }
 
+    // Restore completed encounters using each marker’s unique ID.
     const savedMarkers = JSON.parse(
       localStorage.getItem('defeatedBossMarkers') || '[]',
     )
@@ -100,6 +106,7 @@
         fillOpacity: 1,
       })
         .addTo(map)
+        // Resolve the marker to a boss and build its hover card.
         .bindTooltip(() => {
           const bossName = markerNames[marker.name] ?? marker.name
           const bossId = bossIdsByMarker[marker.id]
@@ -144,6 +151,7 @@
           opacity: 1,
         })
 
+      // Toggle and save this encounter without changing other markers.
       circle.on('click', () => {
         defeated = !defeated
 
@@ -166,6 +174,7 @@
     }
   })
 
+  // Remove the Leaflet map when the page is closed.
   onUnmounted(() => {
     if (map) {
       map.remove()

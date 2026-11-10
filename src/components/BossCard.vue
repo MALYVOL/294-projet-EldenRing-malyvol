@@ -3,6 +3,7 @@
 
   const bossStore = useBossStore()
 
+  // Receive the boss displayed by the catalog or favorites page.
   defineProps({
     boss: Object,
   })
@@ -13,7 +14,7 @@
     class="boss-card"
     :to="`/boss/${boss.id}`"
   >
-    <!-- Image du Boss -->
+    <!-- Boss image -->
     <img
       v-if="boss.image"
       :alt="boss.name"
@@ -21,21 +22,22 @@
       style="display: block; width: 100%; height: 250px; object-fit: cover;"
     >
 
-    <!-- Nom du Boss -->
+    <!-- Boss name -->
     <v-card-title>{{ boss.name }}</v-card-title>
 
-    <!-- PV du Boss -->
+    <!-- Health points -->
     <v-card-subtitle>{{ boss.healthPoints + " HP" }}</v-card-subtitle>
 
-    <!-- Location du Boss -->
+    <!-- Boss location -->
     <v-card-subtitle>{{ boss.location }}</v-card-subtitle>
 
-    <!-- Drop du Boss -->
+    <!-- Rewards -->
     <v-card-subtitle>{{ boss.drops.join(", ") }}</v-card-subtitle>
 
     <v-card-actions>
       <v-spacer />
 
+      <!-- Stop the click from opening the boss detail page. -->
       <v-btn
         :color="bossStore.isFavorite(boss.id) ? 'red' : undefined"
         :icon="bossStore.isFavorite(boss.id) ? 'mdi-heart' : 'mdi-heart-outline'"

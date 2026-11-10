@@ -61,6 +61,7 @@
   import { useBossStore } from '@/stores/bosses'
 
   const bossStore = useBossStore()
+  // Keep the favorites getter and loading state reactive.
   const { getFavorites: favoriteBosses, isLoading, error } = storeToRefs(bossStore)
 </script>
 

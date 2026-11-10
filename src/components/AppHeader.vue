@@ -1,4 +1,5 @@
 <script setup>
+  // Resolve the logo path using the deployment base URL.
   const logoUrl = `${import.meta.env.BASE_URL}images/elden-ring-logo.png`
 </script>
 

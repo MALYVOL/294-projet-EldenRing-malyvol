@@ -1,3 +1,4 @@
+// Local boss entries use negative IDs to avoid collisions with API IDs.
 export const extraBosses = [
   {
     id: -1,
